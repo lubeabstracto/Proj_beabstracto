@@ -1,6 +1,6 @@
 // MyPasteComponent.jsx
 import React, { useState } from 'react';
-import { handlePaste } from './pasteLogic';
+import { handlePaste } from './pastelogic.js';
 
 const MyPasteComponent = () => {
   const [formattedHtml, setFormattedHtml] = useState(''); // Estado para armazenar o HTML formatado
