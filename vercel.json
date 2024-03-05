@@ -1,10 +1,9 @@
 {
     "routes": [
-      {
-        "src": "/l/(.*)",
-        "dest": "/redirect/[...slug]",
-        "continue": true
-      }
+        {
+            "src": "/l/(.*)",
+            "dest": "/redirect/[...slug]",
+            "continue": true
+        }
     ]
-  }
-  
+}

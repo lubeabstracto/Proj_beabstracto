@@ -59,8 +59,10 @@ export default function CreateLink() {
         <button type="submit">Create Link</button>
       </form>
       {generatedLink && <p>Generated Link:
-        
-      <a href={generatedLink}>{generatedLink}</a>
+
+        <Link href="/redirect/[...slug]" as="/l/tesste2">
+          <a>{generatedLink}</a>
+        </Link>
       
       </p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
