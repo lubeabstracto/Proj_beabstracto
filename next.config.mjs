@@ -5,7 +5,7 @@ const nextConfig = {
     return [
       {
         source: '/l/:path*',
-        destination: 'http://localhost:3000/:path*', // Adjust this as needed
+        destination: '/gerador-link-whats-app/:path*', // Adjust this as needed
       },
     ];
   },
