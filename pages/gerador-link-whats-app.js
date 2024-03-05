@@ -60,7 +60,7 @@ export default function CreateLink() {
       </form>
       {generatedLink && <p>Generated Link:
 
-        <Link href="/redirect/[...slug]" as="/l/tesste2">
+        <Link href="/redirect/[...slug]" as={`/l/${linkName}`}>
           <a>{generatedLink}</a>
         </Link>
       
