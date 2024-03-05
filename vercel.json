@@ -2,7 +2,8 @@
     "routes": [
       {
         "src": "/l/(.*)",
-        "dest": "/api/get-link?link_name=$1"
+        "dest": "/l/[link_name]",
+        "continue": true
       }
     ]
   }
