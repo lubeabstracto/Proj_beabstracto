@@ -11,14 +11,14 @@ export default function CreateLink() {
     e.preventDefault();
     setError('');
     try {
-      const response = await fetch('/api/add-link', {
+    const response = await fetch('https://chamanozap.link/api/add-link', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ link_name: linkName, phone_number: phoneNumber, message }),
       });
       if (response.ok) {
         const data = await response.json();
-        setGeneratedLink(`${window.location.origin}/l/${data.link_name}`);
+        setGeneratedLink(`${"https://chamanozap.link"}/l/${data.link_name}`);
     } else {
         const errorData = await response.json();
         if (response.status === 409) {
