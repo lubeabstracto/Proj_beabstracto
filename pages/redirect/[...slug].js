@@ -11,6 +11,7 @@ const RedirectPage = () => {
   useEffect(() => {
     if (slug) {
       const linkName = Array.isArray(slug) ? slug.join('/') : slug;
+      console.log('ta dando pau aqui');
       fetch(`/api/get-link?link_name=${linkName}`)
         .then((res) => {
           if (!res.ok) throw new Error(res.statusText);
