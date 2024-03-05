@@ -5,13 +5,16 @@ console.log("abrindo o slug");
 
 const RedirectPage = () => {
   const router = useRouter();
+  console.log('ta dando pau aqui 1');
+
   const { slug } = router.query;
   const [whatsappUrl, setWhatsappUrl] = useState('');
 
   useEffect(() => {
     if (slug) {
+      console.log('ta dando pau aqui2');
       const linkName = Array.isArray(slug) ? slug.join('/') : slug;
-      console.log('ta dando pau aqui');
+      console.log('ta dando pau aqui 3');
       fetch(`/api/get-link?link_name=${linkName}`)
         .then((res) => {
           if (!res.ok) throw new Error(res.statusText);
