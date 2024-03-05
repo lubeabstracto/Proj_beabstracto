@@ -60,7 +60,11 @@ export default function CreateLink() {
       </form>
       {generatedLink && <p>Generated Link:
         
-      <a href={generatedLink}>{generatedLink}</a>
+      <Link href="/l/[link_name]" as={`/l/${generatedLink}`}>
+
+      <a>{generatedLink}</a>
+
+      </Link>
       
       </p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}

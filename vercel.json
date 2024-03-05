@@ -1,7 +1,7 @@
 {
     "routes": [
       {
-        "src": "/l/(.*)",
+        "src": "/gerador-link-whats-app/(.*)",
         "dest": "/l/[link_name]",
         "continue": true
       }
