@@ -2,7 +2,7 @@
     "routes": [
       {
         "src": "/l/(.*)",
-        "dest": "/l/[link_name]",
+        "dest": "/[link_name]",
         "continue": true
       }
     ]
