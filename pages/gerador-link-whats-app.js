@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Link from 'next/link';
 
 export default function CreateLink() {
   const [linkName, setLinkName] = useState('');
@@ -60,12 +59,8 @@ export default function CreateLink() {
         <button type="submit">Create Link</button>
       </form>
       {generatedLink && <p>Generated Link:
-
-        <Link href="/redirect/[...slug]" as={`/l/${linkName}`}>
-          <a>{generatedLink}</a>
-        </Link>
-      
-      </p>}
+        
+         <a href={generatedLink}>{generatedLink}</a></p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
