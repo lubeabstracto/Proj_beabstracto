@@ -19,6 +19,7 @@ const RedirectPage = () => {
         .then((data) => {
           const url = `https://api.whatsapp.com/send?phone=${data.phone_number}&text=${encodeURIComponent(data.message)}`;
           setWhatsappUrl(url);
+          console.log(url);
         })
         .catch((error) => {
           console.error('Redirection error:', error);
