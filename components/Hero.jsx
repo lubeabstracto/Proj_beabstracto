@@ -5,7 +5,7 @@ import CapiImg from '../assets/capi.png';
 import bola1 from '../assets/bola1.png'; 
 import bola2 from '../assets/bola2.png'; 
 import '../styles/custom.module.css';
-console.log(bola1)
+console.log(process.env.DATABASE_URL);
 
 export default function SecondHero() {
   const [isMobile, setIsMobile] = useState(false);

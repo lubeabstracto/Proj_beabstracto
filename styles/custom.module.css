@@ -55,31 +55,29 @@
       animation: moveBola2 10s infinite alternate ease-in-out;
     }
     
-  /* Moving Banner */
-  
-  @keyframes movingBannerEffect {
-    from {
-      transform: translateX(0%);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+/* MovingBanner.module.css */
+
+@keyframes movingBannerEffect {
+  from {
+    transform: translateX(0%);
   }
-  
-  .moving-banner {
-    animation: movingBannerEffect var(--banner-animation-duration) linear infinite;
-    animation-play-state: var(--banner-animation-play-state);
+  to {
+    transform: translateX(-100%);
   }
-  
-  /* Pause the animation when hovered */
-  .banner-paused {
-    animation-play-state: paused;
-  }
-  
-  /* Add shadow effect on hover for each item */
-  .moving-banner a:hover {
-    text-shadow: 0px 0px 1000px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.6);
-  }
+}
+
+.movingBanner {
+  animation: movingBannerEffect var(--banner-animation-duration) linear infinite;
+  animation-play-state: var(--banner-animation-play-state);
+}
+
+.bannerPaused {
+  animation-play-state: paused;
+}
+
+.movingBannerItem:hover {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.6);
+}
   
   /* Circular Button */
   
