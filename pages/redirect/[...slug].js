@@ -39,4 +39,6 @@ const RedirectPage = () => {
   );
 };
 
+console.log(url);
+
 export default RedirectPage;
