@@ -1,9 +1,10 @@
 {
-  "routes": [
-    {
-      "src": "/l/(.*)",
-      "dest": "/l/[link_name]",
-      "continue": true
-    }
-  ]
-}
+    "routes": [
+      {
+        "src": "/l/(.*)",
+        "dest": "/l/[link_name]",
+        "continue": true
+      }
+    ]
+  }
+  
