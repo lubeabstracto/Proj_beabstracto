@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
+console.log("rodando o link name");
+
 const LinkRedirect = () => {
   const router = useRouter();
   const { link_name } = router.query;

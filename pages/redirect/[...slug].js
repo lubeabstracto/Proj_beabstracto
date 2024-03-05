@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
+console.log("rodando o slug");
+
 const RedirectPage = () => {
   const router = useRouter();
   const { slug } = router.query;
