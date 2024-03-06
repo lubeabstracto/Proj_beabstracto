@@ -1,15 +1,17 @@
+import { useEffect } from 'react'; // Importa useEffect do React
+import { useRouter } from 'next/router'; // Importa useRouter do Next.js
 import Link from 'next/link';
 
 console.log('abriu o slug');
 
-const Redirect = () => {
-    const router = useRouter();
-    const { slug } = router.query;
-  
-    useEffect(() => {
-      console.log(`The slug is: ${slug}`);
-    }, [slug]);
-    
+const RedirectPage = () => {
+  const router = useRouter();
+  const { slug } = router.query;
+
+  useEffect(() => {
+    console.log(`The slug is: ${slug}`);
+  }, [slug]);
+
   return (
     <div>
       <h1>Welcome to the Home Page</h1>
@@ -23,4 +25,4 @@ const Redirect = () => {
   );
 };
 
-export default Redirect;
+export default RedirectPage;
