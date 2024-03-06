@@ -1,37 +1,27 @@
-// pages/l/[link_name].js
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+// pages/api/l/[link_name].js
+import { Pool } from 'pg';
 
-const LinkPage = () => {
-  const [whatsappHref, setWhatsappHref] = useState('#');
-  const router = useRouter();
-  const { link_name } = router.query;
+export default async function handler(req, res) {
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  });
 
-  useEffect(() => {
-    if (link_name) {
-      fetch(`/api/l/${link_name}`)
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to fetch data');
-          return response.json();
-        })
-        .then(data => {
-          // Construct the WhatsApp link
-          const whatsappUrl = `https://api.whatsapp.com/send?phone=${data.phone_number}&text=${encodeURIComponent(data.message)}`;
-          setWhatsappHref(whatsappUrl);
-        })
-        .catch(error => console.error('Error:', error));
+  const { link_name } = req.query;
+
+  try {
+    const { rows } = await pool.query('SELECT phone_number, message FROM links WHERE link_name = $1', [link_name]);
+    
+    if (rows.length > 0) {
+      // Correctly return the JSON data without using useState
+      res.status(200).json({
+        phone_number: rows[0].phone_number,
+        message: rows[0].message,
+      });
+    } else {
+      res.status(404).json({ error: 'Link not found.' });
     }
-  }, [link_name]);
-
-  return (
-    <div>
-      {link_name ? (
-        <a href={whatsappHref} target="_blank" rel="noopener noreferrer">Send WhatsApp Message</a>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
-};
-
-export default LinkPage;
+  } catch (error) {
+    console.error('Error during database query:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
