@@ -1,15 +1,15 @@
-import { useEffect } from 'react'; // Importa useEffect do React
-import { useRouter } from 'next/router'; // Importa useRouter do Next.js
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-
-console.log('abriu o slug');
 
 const RedirectPage = () => {
   const router = useRouter();
   const { slug } = router.query;
 
   useEffect(() => {
-    console.log(`The slug is: ${slug}`);
+    if (slug) { // Checa se `slug` está disponível
+      console.log(`The slug is: ${slug}`);
+    }
   }, [slug]);
 
   return (
