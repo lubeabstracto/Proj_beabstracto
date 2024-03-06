@@ -10,19 +10,18 @@ export default function GeradorLinkWhatsApp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
-    const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-
+  
     try {
       const response = await fetch('/api/add-link', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ link_name: linkName, phone_number: phoneNumber, message, whatsapp_link: whatsappLink }),
+        body: JSON.stringify({ link_name: linkName, phone_number: phoneNumber, message }),
       });
       
       if (response.ok) {
         const data = await response.json();
-        setGeneratedLink(`https://chamanozap.link/${data.link_name}`);
+        // Instead of showing the full WhatsApp link, you show a link to your redirect API endpoint
+        setGeneratedLink(`https://chamanozap.link/l/${data.link_name}`);
       } else {
         const errorData = await response.json();
         setError(errorData.error || 'An error occurred while creating the link.');
@@ -31,6 +30,7 @@ export default function GeradorLinkWhatsApp() {
       setError('An error occurred while submitting the form.');
     }
   };
+  
 
   return (
     <div>
