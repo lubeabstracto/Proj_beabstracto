@@ -7,9 +7,11 @@ const LinkPage = () => {
   const { link_name } = router.query;
 
   useEffect(() => {
-    // Fetch the link details when the link_name becomes available
     if (link_name) {
-      fetch(`/api/l/${link_name}`)
+      // Construct the fetch URL for your API
+      const fetchUrl = `/api/l/${link_name}`;
+      
+      fetch(fetchUrl)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -17,7 +19,6 @@ const LinkPage = () => {
           return response.json();
         })
         .then((data) => {
-          // Construct the WhatsApp link and set it in state
           const phoneNumber = data.phone_number;
           const message = encodeURIComponent(data.message);
           setWhatsappHref(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`);
@@ -30,7 +31,11 @@ const LinkPage = () => {
 
   return (
     <div>
-      <a href={whatsappHref} target="_blank" rel="noopener noreferrer">send whatsapp message</a>
+      {whatsappHref ? (
+        <a href={whatsappHref} target="_blank" rel="noopener noreferrer">Send WhatsApp Message</a>
+      ) : (
+        <p>Loading or link not found...</p>
+      )}
     </div>
   );
 };
