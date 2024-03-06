@@ -1,49 +1,19 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
-console.log("abrindo o slug");
+console.log('abriu o slug');
 
-const RedirectPage = () => {
-  const router = useRouter();
-  console.log('ta dando pau aqui 1');
-
-  const { slug } = router.query;
-  const [whatsappUrl, setWhatsappUrl] = useState('');
-
-  useEffect(() => {
-    if (slug) {
-      console.log('ta dando pau aqui2');
-      const linkName = Array.isArray(slug) ? slug.join('/') : slug;
-      console.log('ta dando pau aqui 3');
-      fetch(`/api/get-link?link_name=${linkName}`)
-        .then((res) => {
-          if (!res.ok) throw new Error(res.statusText);
-          return res.json();
-        })
-        .then((data) => {
-          const url = `https://api.whatsapp.com/send?phone=${data.phone_number}&text=${encodeURIComponent(data.message)}`;
-          setWhatsappUrl(url);
-          console.log(url);
-        })
-        .catch((error) => {
-          console.error('Redirection error:', error);
-        });
-    }
-  }, [slug]);
-
+const HomePage = () => {
   return (
     <div>
-      {whatsappUrl ? (
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          <button>Go to WhatsApp</button>
+      <h1>Welcome to the Home Page</h1>
+      <p>Click the button below to go to the Create Post page.</p>
+      <Link href="/createpost">
+        <a>
+          <button>Create Post</button>
         </a>
-      ) : (
-        <p>Preparing your link...</p>
-      )}
+      </Link>
     </div>
   );
 };
 
-console.log(url);
-
-export default RedirectPage;
+export default HomePage;
