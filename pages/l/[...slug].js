@@ -7,11 +7,28 @@ const RedirectPage = () => {
     const { slug } = router.query; // Deve capturar o "dkdjjdjddjdj" da URL
   
     useEffect(() => {
-      // Certifique-se de que este log só ocorra quando o slug estiver definido
       if (slug) {
-        console.log(`O slug é: ${slug}`); // Deve logar "O slug é: dkdjjdjddjdj"
+        console.log(`O slug é: ${slug}`); // Isto vai logar o slug no console.
+    
+        // Aqui vamos fazer a chamada para a API para buscar os dados do banco de dados.
+        fetch(`/api/get-link?link_name=${slug}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erro ao buscar dados');
+            }
+            return response.json();
+          })
+          .then(data => {
+            // Neste ponto, você tem acesso ao `phone_number` e `message` de `data`
+            console.log('Número de telefone:', data.phone_number);
+            console.log('Mensagem:', data.message);
+            // Aqui você pode definir o estado ou executar outras ações com os dados recebidos
+          })
+          .catch(error => {
+            console.error('Erro ao realizar a consulta:', error);
+          });
       }
-    }, [slug]);
+    }, [slug]); // Dependências do useEffect - reexecutará se o slug mudar
 
   return (
     <div>
