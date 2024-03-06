@@ -1,42 +1,44 @@
 // pages/l/[link_name].js
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { Pool } from 'pg';
 
-const LinkRedirect = ({ whatsappLink }) => {
-  const router = useRouter();
+export default function LinkRedirect({ whatsappLink }) {
+  // Client-side redirection isn't necessary here because we'll handle redirection server-side
 
-  useEffect(() => {
-    if (whatsappLink) {
-      window.location.href = whatsappLink;
-    }
-  }, [whatsappLink]);
-
-  return <p>Redirecting...</p>;
-};
+  // Render nothing or a loading indicator since we should redirect before this renders
+  return null;
+}
 
 export async function getServerSideProps(context) {
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  });
+
   // Access link_name from the context params
   const { link_name } = context.params;
-  let whatsappLink = '';
 
   try {
     // Perform your database query here using server-side code
-    // const result = await yourDatabaseQueryFunction(link_name);
-    // whatsappLink = result.whatsapp_link;
-
-    // For now, we'll just return an example URL
-    whatsappLink = 'https://api.whatsapp.com/send?...';
+    const { rows } = await pool.query('SELECT whatsapp_link FROM links WHERE link_name = $1', [link_name]);
+    
+    if (rows.length > 0) {
+      // Redirect to the WhatsApp link
+      return {
+        redirect: {
+          destination: rows[0].whatsapp_link,
+          permanent: false, // This is usually a temporary redirect as the link might change
+        },
+      };
+    } else {
+      // If no record is found, return a 404
+      return {
+        notFound: true,
+      };
+    }
   } catch (error) {
     // Handle errors, possibly return a 404 or another page
+    console.error(error);
     return {
       notFound: true,
     };
   }
-
-  // Pass the WhatsApp link to the page for redirection
-  return {
-    props: { whatsappLink },
-  };
 }
-
-export default LinkRedirect;
