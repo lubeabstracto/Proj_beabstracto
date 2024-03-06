@@ -3,17 +3,15 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const RedirectPage = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-
-  useEffect(() => {
-    // Acessa `window.location` diretamente para obter o slug como uma alternativa
-    const pathSlug = window.location.pathname.split('/').pop();
-    if (pathSlug) {
-      console.log(`The slug from window.location is: ${pathSlug}`);
-    }
-  }, []);
+    const router = useRouter();
+    const { slug } = router.query; // Deve capturar o "dkdjjdjddjdj" da URL
   
+    useEffect(() => {
+      // Certifique-se de que este log só ocorra quando o slug estiver definido
+      if (slug) {
+        console.log(`O slug é: ${slug}`); // Deve logar "O slug é: dkdjjdjddjdj"
+      }
+    }, [slug]);
 
   return (
     <div>
