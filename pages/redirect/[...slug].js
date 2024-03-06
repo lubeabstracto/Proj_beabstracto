@@ -7,10 +7,13 @@ const RedirectPage = () => {
   const { slug } = router.query;
 
   useEffect(() => {
-    if (slug) { // Checa se `slug` está disponível
-      console.log(`The slug is: ${slug}`);
+    // Acessa `window.location` diretamente para obter o slug como uma alternativa
+    const pathSlug = window.location.pathname.split('/').pop();
+    if (pathSlug) {
+      console.log(`The slug from window.location is: ${pathSlug}`);
     }
-  }, [slug]);
+  }, []);
+  
 
   return (
     <div>
