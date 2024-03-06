@@ -2,7 +2,14 @@ import Link from 'next/link';
 
 console.log('abriu o slug');
 
-const HomePage = () => {
+const Redirect = () => {
+    const router = useRouter();
+    const { slug } = router.query;
+  
+    useEffect(() => {
+      console.log(`The slug is: ${slug}`);
+    }, [slug]);
+    
   return (
     <div>
       <h1>Welcome to the Home Page</h1>
@@ -16,4 +23,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Redirect;
