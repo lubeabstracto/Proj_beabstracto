@@ -1,26 +1,35 @@
-// pages/api/l/[link_name].js
-import { Pool } from 'pg';
+// pages/l/[link_name].js
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+const LinkPage = () => {
+  const router = useRouter();
+  const { link_name } = router.query;
 
-export default async function handler(req, res) {
-  const { link_name } = req.query;
-
-  try {
-    const { rows } = await pool.query('SELECT phone_number, message FROM links WHERE link_name = $1', [link_name]);
-    
-    if (rows.length > 0) {
-      const phoneNumber = rows[0].phone_number;
-      const message = encodeURIComponent(rows[0].message); // Make sure to encode the message
-      const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
-
-      res.redirect(307, whatsappLink); // Temporary redirect with status code 307
-    } else {
-      res.status(404).json({ error: 'Link not found.' });
+  useEffect(() => {
+    if (link_name) {
+      // Fetch the data from the API route
+      fetch(`/api/l/${link_name}`)
+        .then((response) => {
+          if (response.ok) return response.json();
+          throw new Error('Failed to fetch');
+        })
+        .then((data) => {
+          // Now you have your data, you can redirect or display it
+          // This is just a placeholder logic for example
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
-  } catch (error) {
-    res.status(500).json({ error: 'Server error.' });
-  }
-}
+  }, [link_name]);
+
+  return (
+    <div>
+      <p>Redirecting, please wait...</p>
+    </div>
+  );
+};
+
+export default LinkPage;
