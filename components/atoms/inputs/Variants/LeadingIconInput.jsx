@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LeadingIconInput = ({ id, label, placeholder, IconComponent, ...props }) => {
+const LeadingIconInput = ({ id, label, placeholder, IconComponent, type = 'text', ...props }) => {
   return (
     <div className='py-2'>
       <label htmlFor={id} className="block text-sm font-medium leading-6 text-gray-900">
@@ -13,7 +13,7 @@ const LeadingIconInput = ({ id, label, placeholder, IconComponent, ...props }) =
           </div>
         )}
         <input
-          type="email"
+          type={type}
           name={id}
           id={id}
           className={`block w-full rounded-md border-0 py-1.5 ${IconComponent ? 'pl-10' : 'pl-3'} text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-primary sm:text-sm sm:leading-6`}

@@ -101,29 +101,29 @@ export default function HeroForm() {
         </div>
       </div>
       </div>
-      <div className='flex flex-column gap-4 m-16'>
-      <Card
-        title="Crie seu link"
-        linkText="chamanozap.link/l/Seu-Link"
-        description="Use o formulârio acima e crie seu link de maneira fácil fácil. Obtenha um link no formato chamanozap.link/l/SEULINK 😉."
-        LinkIconComponent={LinkIcon}
-        href="#"
-      />
-      <Card
-        title="Divulgue o seu novo link"
-        linkText="Na sua bio, no seu site, em todo lado!"
-        description="Use seu link nas suas redes sociais como Instagram, LinkedIn, YouTube e no seu próprio website."
-        LinkIconComponent={ShareIcon}
-        href="#"
-      />
-      <Card
-        title="Aproveite o resultado"
-        linkText="Profissionalismo e agilidade!"
-        description="Facilite a vida dos seus clientes e audiência, agilize o processo de envio de mensagens e evite perder leads."
-        LinkIconComponent={FaceSmileIcon}
-        href="#"
-      />
-    </div>
+      <div className='flex flex-col gap-4 m-16 md:flex-row'>
+        <Card
+          title="Crie seu link"
+          linkText="chamanozap.link/l/Seu-Link"
+          description="Use o formulârio acima e crie seu link de maneira fácil fácil. Obtenha um link no formato chamanozap.link/l/SEULINK 😉."
+          LinkIconComponent={LinkIcon}
+          href="#"
+        />
+        <Card
+          title="Divulgue o seu novo link"
+          linkText="Na sua bio, no seu site, em todo lado!"
+          description="Use seu link nas suas redes sociais como Instagram, LinkedIn, YouTube e no seu próprio website."
+          LinkIconComponent={ShareIcon}
+          href="#"
+        />
+        <Card
+          title="Aproveite o resultado"
+          linkText="Profissionalismo e agilidade!"
+          description="Facilite a vida dos seus clientes e audiência, agilize o processo de envio de mensagens e evite perder leads."
+          LinkIconComponent={FaceSmileIcon}
+          href="#"
+        />
+      </div>
     <FaqSection
       faqs={[
         {
