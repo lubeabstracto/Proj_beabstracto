@@ -11,6 +11,8 @@ import InlineAddOnInput from './atoms/inputs/Variants/InlineAddOnInput'
 
 import foldedTexture from '../assets/foldedTexture.png'
 import logo from '../assets/logoWhite.svg'
+import hand1 from '../assets/hand1.png'
+import hand2 from '../assets/hand2.png'
 
 
 const countryOptions = [
@@ -41,62 +43,69 @@ export default function HeroForm() {
  
         </div>
         <div className="px-16 mt-16 mx-8 flex sm:mt-24 lg:mt-0 w-full">
-          <div className="w-full">
-            <div className="rounded-lg bg-white p-2 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl lg:p-4">
-              <LeadingIconInput
-                  id="business_name"
-                  label="Nome do negócio"
-                  placeholder="Digite o nome do seu negócio"
-                  IconComponent={UserIcon} 
-              />
-              <LeadingDropdownInput
-                  id="number"
-                  label="Número do WhatsApp"
-                  placeholder="Digite o número do seu WhatsApp"
-                  options={countryOptions} 
-                  inputProps={{}} 
-              />
-              
-              <LeadingIconInput
-                  id="nome_negocio"
-                  label="Mensagem (opcional)"
-                  placeholder="Digite o nome do seu negócio"
-                  IconComponent={ChatBubbleLeftIcon} 
-              />
+        <div className="w-full relative">
+          <img src={hand1.src} alt="Hand 1" className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 h-24"/>
+          <img src={hand2.src} alt="Hand 2" className="absolute bottom-8 right-0 translate-x-1/2 translate-y-1/2 h-32"/>
 
-              <InlineAddOnInput
-                id="link_name"
-                label="Escolha o nome do link"
-                addonText="chamanozap.link/l/"
-              />
+          <div className="rounded-lg bg-white p-4 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
 
-              <div>
+            {/* LeadingIconInput Component */}
+            <LeadingIconInput
+              id="business_name"
+              label="Nome do negócio"
+              placeholder="Digite o nome do seu negócio"
+              IconComponent={UserIcon} 
+            />
+
+            {/* LeadingDropdownInput Component */}
+            <LeadingDropdownInput
+              id="number"
+              label="Número do WhatsApp"
+              placeholder="Digite o número do seu WhatsApp"
+              options={countryOptions} 
+              inputProps={{}} 
+            />
+            
+            {/* Textarea Input for Business Description */}
+            <div>
               <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-              Descreva seu negócio (opcional)
+                Descreva seu negócio (opcional)
               </label>
               <div className="mt-2.5">
-              <textarea
-                name="message"
-                id="message"
-                rows={4}
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                defaultValue={''}
-              />
+                <textarea
+                  name="message"
+                  id="message"
+                  rows={4}
+                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  defaultValue={''}
+                />
               </div>
-              </div>
-
-
-              <a
-                href="#"
-                className="mt-4 mb-4 block w-full rounded-md bg-semantic-primary-default px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-semantic-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Gerar meu link do WhatsApp
-              </a>
-
-
             </div>
+            {/* LeadingIconInput Component for Optional Message */}
+            <LeadingIconInput
+              id="optional_message"
+              label="Mensagem (opcional)"
+              placeholder="Digite o nome do seu negócio"
+              IconComponent={ChatBubbleLeftIcon} 
+            />
+
+            {/* InlineAddOnInput Component for URL */}
+            <InlineAddOnInput
+              id="link_name"
+              label="Escolha o nome do link"
+              addonText="chamanozap.link/l/"
+            />
+
+            {/* Call to Action Button */}
+            <a
+              href="#"
+              className="mt-4 mb-4 block w-full rounded-md bg-semantic-primary-default px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-semantic-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Gerar meu link do WhatsApp
+            </a>
           </div>
         </div>
+      </div>
       </div>
     </div>
   )
