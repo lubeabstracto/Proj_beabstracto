@@ -1,18 +1,24 @@
 import { 
-    ChevronRightIcon,
+    ShareIcon,
     UserIcon,
     ChatBubbleLeftIcon,
+    FaceSmileIcon,
 
 } from '@heroicons/react/20/solid'
-import InputGroup from './atoms/inputs/InputGroups'
+
 import LeadingIconInput from './atoms/inputs/Variants/LeadingIconInput'
 import LeadingDropdownInput from './atoms/inputs/Variants/LeadingDropdownInput'
 import InlineAddOnInput from './atoms/inputs/Variants/InlineAddOnInput'
+import FaqSection from './FAQ'
+
 
 import foldedTexture from '../assets/foldedTexture.png'
 import logo from '../assets/logoWhite.svg'
 import hand1 from '../assets/hand1.png'
 import hand2 from '../assets/hand2.png'
+
+import { LinkIcon } from '@heroicons/react/20/solid';
+import Card from './Card';
 
 
 const countryOptions = [
@@ -42,10 +48,13 @@ export default function HeroForm() {
           </p>
  
         </div>
-        <div className="px-16 mt-16 mx-8 flex sm:mt-24 lg:mt-0 w-full">
+        <div className="px-16 pt-32 mx-8 flex sm:mt-24 lg:mt-0 w-full">
         <div className="w-full relative">
-          <img src={hand1.src} alt="Hand 1" className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 h-24"/>
-          <img src={hand2.src} alt="Hand 2" className="absolute bottom-8 right-0 translate-x-1/2 translate-y-1/2 h-32"/>
+            {/* Position the hand1 image at the top right corner of the card */}
+            <img src={hand2.src} alt="Hand 1" className="absolute top-4 right-0 translate-x-1/2 -translate-y-1/2 h-44"/>
+            
+            {/* Position the hand2 image at the bottom left corner of the card */}
+            <img src={hand1.src} alt="Hand 2" className="absolute bottom-8 left-0 -translate-x-1/2 translate-y-1/2 h-44"/>
 
           <div className="rounded-lg bg-white p-4 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
 
@@ -66,21 +75,6 @@ export default function HeroForm() {
               inputProps={{}} 
             />
             
-            {/* Textarea Input for Business Description */}
-            <div>
-              <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-                Descreva seu negócio (opcional)
-              </label>
-              <div className="mt-2.5">
-                <textarea
-                  name="message"
-                  id="message"
-                  rows={4}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
-                />
-              </div>
-            </div>
             {/* LeadingIconInput Component for Optional Message */}
             <LeadingIconInput
               id="optional_message"
@@ -107,6 +101,72 @@ export default function HeroForm() {
         </div>
       </div>
       </div>
+      <div className='flex flex-column gap-4 m-16'>
+      <Card
+        title="Crie seu link"
+        linkText="chamanozap.link/l/Seu-Link"
+        description="Use o formulârio acima e crie seu link de maneira fácil fácil. Obtenha um link no formato chamanozap.link/l/SEULINK 😉."
+        LinkIconComponent={LinkIcon}
+        href="#"
+      />
+      <Card
+        title="Divulgue o seu novo link"
+        linkText="Na sua bio, no seu site, em todo lado!"
+        description="Use seu link nas suas redes sociais como Instagram, LinkedIn, YouTube e no seu próprio website."
+        LinkIconComponent={ShareIcon}
+        href="#"
+      />
+      <Card
+        title="Aproveite o resultado"
+        linkText="Profissionalismo e agilidade!"
+        description="Facilite a vida dos seus clientes e audiência, agilize o processo de envio de mensagens e evite perder leads."
+        LinkIconComponent={FaceSmileIcon}
+        href="#"
+      />
+    </div>
+    <FaqSection
+      faqs={[
+        {
+          question: "O que é um link personalizado do WhatsApp?",
+          answer: "Um link personalizado do WhatsApp é um URL único que direciona as pessoas diretamente para iniciar uma conversa com você no WhatsApp, sem a necessidade de adicionar seu número aos contatos.",
+        },
+        {
+          question: "É necessário pagar para criar um link personalizado do WhatsApp?",
+          answer:
+            "Não, o serviço oferecido pela página 'Beabstracto' permite que você crie seu link personalizado do WhatsApp de forma gratuita.",
+        },
+        {
+          question: "Como posso criar um link personalizado do WhatsApp para o meu negócio?",
+          answer:
+            "Para criar seu link personalizado, basta inserir o nome do seu negócio, o número do WhatsApp (com o código do país BR para o Brasil), e, se desejar, uma mensagem padrão. Depois, escolha o nome do link e clique em 'Gerar meu link do WhatsApp'.",
+        },
+        {
+          question: "Onde posso divulgar meu link personalizado do WhatsApp?",
+          answer:
+            "Você pode divulgar seu novo link personalizado em suas redes sociais, como Instagram, LinkedIn, YouTube, no seu próprio website, ou em qualquer outro lugar que considere relevante para sua marca e audiência.",
+        },
+        {
+          question: "Qual é a vantagem de usar um link personalizado do WhatsApp?",
+          answer:
+            "Usar um link personalizado do WhatsApp traz mais profissionalismo para sua marca, facilita a vida dos seus clientes e audiência ao permitir que eles entrem em contato diretamente com você de maneira rápida, além de ajudar a agilizar o processo de envio de mensagens e evitar a perda de leads.",
+        },
+        {
+          question: "Posso personalizar a mensagem que aparece quando alguém usa meu link?",
+          answer:
+            "Sim, você tem a opção de inserir uma mensagem padrão que será exibida quando alguém iniciar uma conversa através do seu link personalizado do WhatsApp.",
+        },
+        {
+          question: "Há algum limite para o número de links personalizados que posso criar?",
+          answer:
+            "A descrição fornecida não especifica um limite, mas geralmente, serviços gratuitos podem ter restrições. Recomenda-se verificar os termos de uso ou entrar em contato com o suporte para mais detalhes.",
+        },
+        {
+          question: "Como posso garantir que meu link personalizado reflita profissionalmente minha marca?",
+          answer:
+            "Certifique-se de escolher um nome de link que seja relevante para o seu negócio, fácil de lembrar e que transmita uma imagem profissional. Além disso, a mensagem padrão deve ser clara, convidativa e refletir o tom da sua marca.",
+        },
+      ]}
+    />
     </div>
   )
 }

@@ -12,7 +12,7 @@ const LeadingDropdownInput = ({ id, label, placeholder, options, inputProps }) =
             id={`${id}-select`}
             name={`${id}-select`}
             autoComplete="country"
-            className="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-7 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-primary sm:text-sm"
+            className="h-full rounded-md border-0 bg-transparent py-0 pl-3 pr-1 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-primary sm:text-sm"
             {...inputProps} // Assuming any additional props for select input
           >
             {options.map((option) => (
