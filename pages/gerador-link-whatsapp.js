@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import HeroForm from '@/components/HeroForm';
+import InlineAddOnAndDropdownInput from '../components/atoms/inputs/Variants/InlineAddOnAndDropdownInput'
 
 export default function GeradorLinkWhatsApp() {
   const [linkName, setLinkName] = useState('');
@@ -33,6 +35,8 @@ export default function GeradorLinkWhatsApp() {
   
 
   return (
+    <>
+    <HeroForm/>
     <div>
       <form onSubmit={handleSubmit}>
       <input
@@ -60,5 +64,6 @@ export default function GeradorLinkWhatsApp() {
       {generatedLink && <p>Generated Link: <a href={generatedLink}>{generatedLink}</a></p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
+    </>
   );
 }

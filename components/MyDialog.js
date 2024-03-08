@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Dialog as HeadlessDialog, Transition } from '@headlessui/react';
-import { CheckIcon } from '@heroicons/react/24/outline';
+import { CheckIcon } from '@heroicons/react/24/solid';
 
 export default function MyDialog({ isOpen, setIsOpen }) {
   return (

@@ -16,7 +16,7 @@ module.exports = {
         '80000': 80000,
       },
       fontFamily: {
-        'sans': ['Proxima Nova', 'sans-serif'], // substitua 'sans' se quiser criar um nome diferente
+        'brand': ['Proxima Nova', 'sans-serif'], // substitua 'sans' se quiser criar um nome diferente
       },
       fontSize: {
         'heading-1': ['3rem', { lineHeight: '4.5rem' }], // 48px com altura de linha de 72px
