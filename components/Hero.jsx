@@ -54,7 +54,7 @@ export default function SecondHero() {
               <polygon points="0,0 90,0 50,100 0,100" />
             </svg>
             <div className={`relative px-6 py-32 sm:py-40 lg:px-8 lg:pr-0 sm:pr-6 ${isMobile ? 'sm:pl-6' : ''}`}>
-              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
+              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-4xl">
                 <div className="hidden sm:mb-10 sm:flex">
                   <div className="relative rounded-full px-3 py-1 text-body-4 font-body-4 leading-6 text-gray-500 bg-white ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                     Aprenda a enviar email marketing para todos os seus leads.{' '}

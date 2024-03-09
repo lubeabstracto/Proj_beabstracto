@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
-import styles from '../styles/MovingBanner.module.css';
-
+import styles from '../styles/MovingBanner.module.css'
 
 export default function MovingBanner() {
   const services = [
@@ -46,27 +44,24 @@ export default function MovingBanner() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <div className={styles.movingBanner}>
     <div className="overflow-hidden relative w-full bg-brand-tertiary py-2.5">
-        <div
+      <div
         className={`${styles.movingBanner} ${isPaused ? styles.bannerPaused : ''}`}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        >
+      >
         {services.map((service, index) => (
-            <a
-                key={service.id}
-                draggable="true"
-                href={service.href}
-                className={`${styles.movingBannerItem} text-white hover:underline inline-block`}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-                >
-                {index % 2 === 0 ? <strong>{service.content}</strong> : service.content}
-                </a>
+          <a
+            key={service.id}
+            href={service.href}
+            className={`text-white hover:underline inline-block ${styles.movingBannerItem}`}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {index % 2 === 0 ? <strong>{service.content}</strong> : service.content}
+          </a>
         ))}
       </div>
-    </div>
     </div>
   );
 }

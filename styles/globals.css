@@ -90,32 +90,6 @@ body {
   .animate-moveBola2 {
     animation: moveBola2 10s infinite alternate ease-in-out;
   }
-  
-/* Moving Banner */
-
-@keyframes movingBannerEffect {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.moving-banner {
-  animation: movingBannerEffect var(--banner-animation-duration) linear infinite;
-  animation-play-state: var(--banner-animation-play-state);
-}
-
-/* Pause the animation when hovered */
-.banner-paused {
-  animation-play-state: paused;
-}
-
-/* Add shadow effect on hover for each item */
-.moving-banner a:hover {
-  text-shadow: 0px 0px 1000px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.6);
-}
 
 /* Circular Button */
 
