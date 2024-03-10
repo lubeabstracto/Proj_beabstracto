@@ -1,4 +1,4 @@
-import SmileImg from '../assets/Smile.png';
+import SmileImg from '../assets/smile.png';
 import { useState } from 'react';
 import Stepper from './Stepper';
 import Toggle from './Toggle';
