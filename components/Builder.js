@@ -121,7 +121,8 @@ export default function Builder() {
       };
 
   return (
-    <div className="relative isolate bg-white min-h-screen">
+    <div className="relative isolate bg-white">
+    <img src={visualOne.src} className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-56 lg:h-96 z-50"/>
     <div className="mx-auto grid w-full grid-cols-1 lg:grid-cols-2">
         <div className="relative px-0 pb-20 pt-24 sm:pt-32 lg:static lg:px-0 lg:py-48">
           <div className="pl-24 pr-8">
@@ -182,7 +183,7 @@ export default function Builder() {
 
           </div>
         </div>
-        <div className="relative flex px-6 sm:pb-32 lg:px-8 lg:py-24 min-h-screen">
+        <div className="relative flex px-6 sm:pb-32 lg:px-8 lg:py-24">
             {/* Colunas de fundo com cores sólidas */}
             <div className="absolute inset-0 flex">
             <div className="w-1/3 bg-brand-primary"></div>
@@ -212,8 +213,7 @@ export default function Builder() {
             <img src={getCurrentStepImage(steps[currentStep].title)} alt={steps[currentStep].title} className="h-3/4 object-scale-down" />
             </div>
         </div>
-
-      </div>
+    </div>
     </div>
   )
 }

@@ -29,7 +29,7 @@ export default function SecondHero() {
         <div className="lg:w-1/2">
           {/* Imagem para largas viewports (lg) */}
           <img
-            className="hidden lg:block -full object-cover"
+            className="hidden lg:block lg:absolute lg:right-0 lg:top-0 h-full w-auto object-cover"
             src={CapiImg.src}
             alt="Imagem para largas viewports"
           />
