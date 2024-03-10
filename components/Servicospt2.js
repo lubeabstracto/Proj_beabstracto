@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
-import { useInView } from 'react-intersection-observer'; // Importando o hook
-
+import { useInView } from 'react-intersection-observer';
+import { useSwipeable } from 'react-swipeable'; // Import the useSwipeable hook
 
 import MarketingImg from '../assets/MarketingImg.jpg';
 import AudiovisualImg from '../assets/AudiovisualImg.jpg';
@@ -66,52 +66,55 @@ const PostItem = ({ post }) => {
 };
 
 const Servicospt2 = () => {
-    const [currentIndex, setCurrentIndex] = useState(1);
-    const totalPosts = Posts.length;
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const totalPosts = Posts.length;
 
-    const nextItem = () => {
-      setCurrentIndex((currentIndex + 1) % totalPosts);
-    };
+  const nextItem = () => {
+    setCurrentIndex((currentIndex + 1) % totalPosts);
+  };
 
-    const prevItem = () => {
-      setCurrentIndex((currentIndex - 1 + totalPosts) % totalPosts);
-    };
+  const prevItem = () => {
+    setCurrentIndex((currentIndex - 1 + totalPosts) % totalPosts);
+  };
 
-    const cardWidth = 420; // Largura de cada card (ajuste conforme necessário)
-    const gap = 20; // Espaço entre os cards
-    const previewWidth = 500; // A largura do próximo card que você quer mostrar
+  const handlers = useSwipeable({
+    onSwipedLeft: () => nextItem(),
+    onSwipedRight: () => prevItem(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
 
-    // Cálculo para translação do contêiner dos cards
-    const offset = -(currentIndex * (cardWidth + gap)) + previewWidth;
+  const cardWidth = 420;
+  const gap = 20;
+  const previewWidth = 500;
+  const offset = -(currentIndex * (cardWidth + gap)) + previewWidth;
 
-    return (
-    <div className="conteudo-direita py-8 flex items-center justify-center lg:pl-24">
-    <button
-        onClick={prevItem}
-        aria-label="Previous item"
-        className='pr-4 '
-    >
-        <ChevronLeftIcon className="w-10 h-10 bg-brand-tertiary text-white rounded-full cursor-pointer transition ease-in-out duration-300 transform hover:scale-105 shadow-md" />
-    </button>
+  return (
+  <div className="conteudo-direita py-8 flex items-center justify-center lg:pl-24">
+  <button
+      onClick={prevItem}
+      aria-label="Previous item"
+  >
+      <ChevronLeftIcon className="w-10 h-10 bg-brand-tertiary text-white rounded-full cursor-pointer transition ease-in-out duration-300 transform hover:scale-105 shadow-md" />
+  </button>
 
-    <div className="overflow-hidden relative" style={{ width: `calc(${cardWidth}px + ${previewWidth}px)` }}>
-        <div className="flex transition-transform duration-300" style={{ transform: `translateX(${offset}px)`, width: `calc(${totalPosts} * (${cardWidth}px + ${gap}px))` }}>
-        {Posts.map((post, index) => (
-            <div className="flex-none h-full" style={{ width: cardWidth, marginRight: gap }} key={post.id}>
-            <PostItem post={post} />
-            </div>
-        ))}
-        </div>
-    </div>
-    <button
-        onClick={nextItem}
-        aria-label="Next item"
-        className='pr-4'
-    >
-        <ChevronRightIcon className="w-10 bg-brand-tertiary h-10 text-white rounded-full cursor-pointer transition ease-in-out duration-300 transform hover:scale-105 shadow-md" />
-    </button>
-    </div>
-    );
+  <div className="overflow-hidden relative" style={{ width: `calc(${cardWidth}px + ${previewWidth}px)` }}>
+      <div {...handlers} className="flex transition-transform duration-300" style={{ transform: `translateX(${offset}px)`, width: `calc(${totalPosts} * (${cardWidth}px + ${gap}px))` }}>
+      {Posts.map((post, index) => (
+          <div className="flex-none h-full" style={{ width: cardWidth, marginRight: gap }} key={post.id}>
+          <PostItem post={post} />
+          </div>
+      ))}
+      </div>
+  </div>
+  <button
+      onClick={nextItem}
+      aria-label="Next item"
+  >
+      <ChevronRightIcon className="w-10 bg-brand-tertiary h-10 text-white rounded-full cursor-pointer transition ease-in-out duration-300 transform hover:scale-105 shadow-md" />
+  </button>
+  </div>
+  );
 };
 
 export default Servicospt2;

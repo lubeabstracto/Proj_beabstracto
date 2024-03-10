@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { CheckIcon } from '@heroicons/react/20/solid';
 
 function classNames(...classes) {
@@ -5,6 +6,19 @@ function classNames(...classes) {
 }
 
 export default function Stepper({ steps, currentStep }) {
+  const [isSmallViewport, setIsSmallViewport] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallViewport(window.innerWidth <= 640); // Adjust the breakpoint as needed
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <nav aria-label="Progress">
       <ol role="list" className="overflow-hidden">
@@ -21,7 +35,7 @@ export default function Stepper({ steps, currentStep }) {
                 {index !== steps.length - 1 && (
                   <div className="absolute left-4 top-4 -ml-px h-full w-0.5 bg-brand-primary" aria-hidden="true" />
                 )}
-                <span className="ml-4 flex min-w-0 flex-col">
+                <span className={`ml-4 flex min-w-0 flex-col ${isSmallViewport ? 'hidden' : ''}`}>
                   <span className="font-brand text-lg font-bold">{step.name}</span>
                   <span className="font-brand text-sm text-gray-500">{step.description}</span>
                 </span>
@@ -37,7 +51,7 @@ export default function Stepper({ steps, currentStep }) {
                 {index !== steps.length - 1 && (
                   <div className="absolute left-4 top-4 -ml-px mt-0.5 h-full w-0.5 bg-gray-300" aria-hidden="true" />
                 )}
-                <span className="ml-4 flex min-w-0 flex-col">
+                <span className={`ml-4 flex min-w-0 flex-col ${isSmallViewport ? 'hidden' : ''}`}>
                   <span className="font-brand text-lg font-bold text-font-color-dark">{step.name}</span>
                   <span className="font-brand text-sm text-gray-500">{step.description}</span>
                 </span>
@@ -53,7 +67,7 @@ export default function Stepper({ steps, currentStep }) {
                 {index !== steps.length - 1 && (
                   <div className="absolute left-4 top-4 -ml-px mt-0.5 h-full w-0.5 bg-gray-300" aria-hidden="true" />
                 )}
-                <span className="ml-4 flex min-w-0 flex-col">
+                <span className={`ml-4 flex min-w-0 flex-col ${isSmallViewport ? 'hidden' : ''}`}>
                   <span className="font-brand text-lg font-bold text-gray-500">{step.name}</span>
                   <span className="font-brand text-sm text-gray-500">{step.description}</span>
                 </span>

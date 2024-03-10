@@ -209,7 +209,7 @@ export default function Builder() {
             {/* Logo at the top-left corner */}
             <img src={simpleLogoWhite.src} alt="Logo" className="absolute top-0 left-0 mt-4 ml-4" /> 
             {/* Centered image */}
-            <img src={getCurrentStepImage(steps[currentStep].title)} alt={steps[currentStep].title} className="h-3/4" />
+            <img src={getCurrentStepImage(steps[currentStep].title)} alt={steps[currentStep].title} className="h-3/4 object-scale-down" />
             </div>
         </div>
 
