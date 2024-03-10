@@ -37,7 +37,7 @@ const alternativas = [
     },
     {
         id: 4,
-        content: 'começar como freelancer',
+        content: 'ser um freelancer',
         color: '#0078CC',
         element: Rocket,
         amount: 10,
@@ -55,7 +55,7 @@ const alternativas = [
     },
     {
         id: 6,
-        content: 'se lançar como profissional',
+        content: 'se tornar profissional',
         color: '#B63637',
         amount: 12,
         element: Smile,
@@ -77,7 +77,7 @@ const renderElements = (Element, amount, animation) => {
     }
 
     return (
-        <div className="flex justify-left mt-2">
+        <div className="flex justify-left mt-2 h-8">
             {Array.from({ length: amount }).map((_, i) => (
                 animation === 'underline' ? (
                     <div key={i} className={`mx-48 ${animationClass}`} style={{width: 'fit-content', height: 'auto'}}>

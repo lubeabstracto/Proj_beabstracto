@@ -11,6 +11,7 @@ import Pacotes from '../components/Pacotes';
 import MovingBanner from '../components/MovingBanner';
 import LoadingScreen from '../components/Loading';
 
+
 const Home = () => {
   // Estado para controlar se o loading está ativo ou não
   const [isLoading, setIsLoading] = useState(true);

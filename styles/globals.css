@@ -21,14 +21,14 @@ body {
 
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('/fonts/ProximaNovaRegular.otf') format('opentype');
+  src: url('../public/fonts/ProximaNovaRegular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Proxima Nova';
-  src: url('/fonts/ProximaNovaBold.otf') format('opentype');
+  src: url('../public/fonts/ProximaNovaBold.otf') format('opentype');
   font-weight: 700; /* Ajuste para o peso bold */
   font-style: normal;
 }
@@ -202,18 +202,3 @@ body {
   animation: neon-blink 1s infinite;
 }
 
-
-/* Servicos */
-
-#conteudo-esquerda {
-  max-width: 80% !important; 
-}
-
-
-.card-servicos {
-  height: 594px !important;
-}
-
-#p-servicos{
-  width: 600px;
-}
