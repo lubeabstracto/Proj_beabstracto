@@ -1,6 +1,11 @@
 import { useState } from 'react';
+import HeroForm from '@/components/HeroForm';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import InlineAddOnAndDropdownInput from '../components/atoms/inputs/Variants/InlineAddOnAndDropdownInput'
+import WhatsAppForm from '@/components/WhatsAppForm';
 
-export default function CreateLink() {
+export default function GeradorLinkWhatsApp() {
   const [linkName, setLinkName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
@@ -10,33 +15,37 @@ export default function CreateLink() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+  
     try {
-      const response = await fetch('/api/add-link', { // This path is relative to the hosted frontend
+      const response = await fetch('/api/add-link', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ link_name: linkName, phone_number: phoneNumber, message }),
-    });    
+      });
+      
       if (response.ok) {
         const data = await response.json();
+        // Instead of showing the full WhatsApp link, you show a link to your redirect API endpoint
         setGeneratedLink(`https://chamanozap.link/l/${data.link_name}`);
-    } else {
+      } else {
         const errorData = await response.json();
-        if (response.status === 409) {
-          setError('The link name is already taken. Please choose another one.');
-        } else {
-          setError(errorData.error || 'An error occurred while creating the link.');
-        }
+        setError(errorData.error || 'An error occurred while creating the link.');
       }
     } catch (error) {
-      console.error('Error:', error);
       setError('An error occurred while submitting the form.');
     }
   };
+  
 
   return (
+    <>
+    <Header/>
+    <HeroForm/>
+    <Footer/>
+    
     <div>
       <form onSubmit={handleSubmit}>
-        <input
+      <input
           type="text"
           value={linkName}
           onChange={(e) => setLinkName(e.target.value)}
@@ -58,10 +67,9 @@ export default function CreateLink() {
         />
         <button type="submit">Create Link</button>
       </form>
-      {generatedLink && <p>Generated Link:
-        
-         <a href={generatedLink}>{generatedLink}</a></p>}
+      {generatedLink && <p>Generated Link: <a href={generatedLink}>{generatedLink}</a></p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
+    </>
   );
 }
