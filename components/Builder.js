@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Stepper from './Stepper';
 import Toggle from './Toggle';
 import builderBg from '../assets/builderBg.jpg'
+import visualOne from '../assets/visualOne.png'
 
 export default function Builder() {
     // Estado para controlar o passo atual do stepper
@@ -58,8 +59,8 @@ export default function Builder() {
       const currentToggles = toggles[Object.keys(toggles)[currentStep]];
 
   return (
-    <div className="relative isolate bg-white h-full">
-      <div className="mx-auto grid w-full grid-cols-1 lg:grid-cols-2">
+    <div className="relative isolate bg-white min-h-screen">
+    <div className="mx-auto grid w-full grid-cols-1 lg:grid-cols-2">
         <div className="relative px-0 pb-20 pt-24 sm:pt-32 lg:static lg:px-0 lg:py-48">
           <div className="pl-24 pr-8">
             <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-white lg:w-1/2">
@@ -101,13 +102,17 @@ export default function Builder() {
             </div>
           </div>
         </div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 lg:-translate-x-1/4 lg:left-3/4 z-20">
+          <img src={visualOne.src} alt="Hand with apple" />
+        </div>
         <div
-        className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
-        style={{
+      className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
+      style={{
             backgroundImage: `url(${builderBg.src})`,
             backgroundSize: 'cover', // Para cobrir todo o fundo
             backgroundPosition: 'left', // Para centralizar a imagem
             backgroundRepeat: 'no-repeat', // Para não repetir a imagem
+            minHeight: '100vh'
         }}
         >
         </div>

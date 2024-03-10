@@ -55,7 +55,7 @@ const alternativas = [
     },
     {
         id: 6,
-        content: 'se tornar profissional',
+        content: 'ser profissional',
         color: '#B63637',
         amount: 12,
         element: Smile,
@@ -77,10 +77,10 @@ const renderElements = (Element, amount, animation) => {
     }
 
     return (
-        <div className="flex justify-left mt-2 h-8">
+        <div className="flex justify-left mt-2 h-6">
             {Array.from({ length: amount }).map((_, i) => (
                 animation === 'underline' ? (
-                    <div key={i} className={`mx-48 ${animationClass}`} style={{width: 'fit-content', height: 'auto'}}>
+                    <div key={i} className={`mx-48 h-16 ${animationClass}`} style={{width: 'fit-content'}}>
                         <img src={Element.src} alt="Element" />
                     </div>
                 ) : (
@@ -107,26 +107,28 @@ const AlternativasComponent = () => {
 
     const renderItem = (item) => {
         return (
-            <>
-                <p className={`text-3xl font-semibold tracking-tight sm:text-4xl ${item.neon ? 'neon-animation' : ''}`} style={{ color: item.color }}>
-                    {item.content}
-                </p>
-                {/* Render elements with their animations and amounts only if neon is false to keep the text separate from the animated elements */}
-                {!item.neon && renderElements(item.element, item.amount, item.animation)}
-            </>
-        );
-    };
-
-    return (
-        <div className="flex flex-col items-left justify-start">
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Tudo que você precisa para
-            </p>
-            <div className="relative text-left" style={{ width: 'fit-content' }}>
-                {renderItem(alternativas[current])}
+          <>
+            <div className="fixed-height-container">
+              <p className={`text-3xl font-semibold tracking-tight sm:text-4xl ${item.neon ? 'neon-animation' : ''}`} style={{ color: item.color }}>
+                {item.content}
+              </p>
             </div>
+            {/* Render elements with their animations and amounts only if neon is false to keep the text separate from the animated elements */}
+            {!item.neon && renderElements(item.element, item.amount, item.animation)}
+          </>
+        );
+      };
+    
+      return (
+        <div className="flex flex-col items-left justify-start">
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Tudo que você precisa para
+          </p>
+          <div className="relative text-left" style={{ width: 'fit-content' }}>
+            {renderItem(alternativas[current])}
+          </div>
         </div>
-    );
-};
-
-export default AlternativasComponent;
+      );
+    };
+    
+    export default AlternativasComponent;
