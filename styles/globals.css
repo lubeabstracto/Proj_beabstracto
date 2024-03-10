@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+.visualizer {
+  width: 100vw;
+  height: 100vh;
+}
+
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
