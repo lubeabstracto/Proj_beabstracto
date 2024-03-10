@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Disclosure } from '@headlessui/react';
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/outline';
+import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
 
 function FaqItem({ faq }) {
   return (

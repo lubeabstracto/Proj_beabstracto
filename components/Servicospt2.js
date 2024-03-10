@@ -79,7 +79,7 @@ const Servicospt2 = () => {
 
     const cardWidth = 420; // Largura de cada card (ajuste conforme necessário)
     const gap = 20; // Espaço entre os cards
-    const previewWidth = 100; // A largura do próximo card que você quer mostrar
+    const previewWidth = 500; // A largura do próximo card que você quer mostrar
 
     // Cálculo para translação do contêiner dos cards
     const offset = -(currentIndex * (cardWidth + gap)) + previewWidth;

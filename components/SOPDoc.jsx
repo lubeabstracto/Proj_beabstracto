@@ -1,4 +1,4 @@
-import { CheckCircleIcon, InformationCircleIcon } from '@heroicons/react/solid'
+import { CheckCircleIcon, InformationCircleIcon } from '@heroicons/react/24/solid'
 import thiagoImage from '../assets/thiago.jpeg';
 import logo from '../assets/logo.png';
 import { Disclosure } from '@headlessui/react'
