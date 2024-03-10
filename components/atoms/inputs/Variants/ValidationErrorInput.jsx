@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExclamationCircleIcon } from '@heroicons/react/20/solid';
+import { ExclamationCircleIcon } from '@heroicons/react/solid';
 
 const ValidationErrorInput = ({ id, label, placeholder, errorMessage, ...props }) => {
   return (

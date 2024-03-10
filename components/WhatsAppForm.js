@@ -6,7 +6,7 @@ import {
     UserIcon,
     ChatBubbleLeftIcon,
 
-} from '@heroicons/react/20/solid'
+} from '@heroicons/react/solid'
 
 import LeadingIconInput from './atoms/inputs/Variants/LeadingIconInput'
 import LeadingDropdownInput from './atoms/inputs/Variants/LeadingDropdownInput'

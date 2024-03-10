@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon, ServerIcon } from '@heroicons/react/20/solid';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { useInView } from 'react-intersection-observer'; // Importando o hook
 
 
