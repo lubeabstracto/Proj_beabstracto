@@ -208,3 +208,8 @@ body {
   animation: neon-blink 1s infinite;
 }
 
+/* Builder */
+.step-transition {
+  transition: opacity 0.5s ease-in-out;
+}
+
