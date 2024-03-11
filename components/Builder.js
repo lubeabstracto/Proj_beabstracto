@@ -1,5 +1,5 @@
 import SmileImg from '../assets/smile.png';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Stepper from './Stepper';
 import Toggle from './Toggle';
 import builderBg from '../assets/builderBg.jpg'
@@ -17,6 +17,7 @@ import LeadingDropdownInput from './atoms/inputs/Variants/LeadingDropdownInput'
 import InlineAddOnInput from './atoms/inputs/Variants/InlineAddOnInput'
 import contactImg from '../assets/contactImg.png'
 import { UserIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/20/solid';
+import Confetti from 'react-confetti';
 
 
 const stepImages = {
@@ -55,6 +56,7 @@ const renderSmiles = (amount) => {
     />
   ));
 };
+  
 
 export default function Builder() {
   // Estado para controlar o passo atual do stepper
@@ -96,6 +98,18 @@ export default function Builder() {
       },
     }));
   };
+
+  const parentRef = useRef();
+  const width = parentRef.current ? parentRef.current.offsetWidth : 300;
+  const height = parentRef.current ? parentRef.current.offsetHeight : 300;
+
+  const [showConfetti, setShowConfetti] = useState(false);
+
+    const handleNextClick = () => {
+        setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 2000); // Desativa o confete após 2 segundos
+    };
 
   // Os passos do stepper com títulos e subtítulos
   const steps = [
@@ -203,18 +217,18 @@ const countryOptions = [
               <div className="flex justify-between items-center pt-4">
                 <button
                   onClick={() => setCurrentStep((prev) => Math.max(prev - 1, 0))}
-                  className="flex items-center text-brand-tertiary hover:text-brand-tertiary-darker font-medium"
+                  className="flex items-center text-brand-tertiary hover:text-brand-tertiary-darker font-semibold"
                   disabled={currentStep === 0} // Disable button if it's the first step
                 >
                   <ChevronLeftIcon className="w-5 h-5 mr-1" />
                   Anterior
                 </button>
                 <button
-                  onClick={() => setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1))}
-                  className="flex items-center text-brand-tertiary hover:text-brand-tertiary-darker font-medium z-50"
+                  onClick={handleNextClick}
+                  className="font-brand flex font-semibold items-center text-brand-tertiary hover:text-brand-tertiary-darker z-50"
                   disabled={currentStep === steps.length - 1} // Disable button if it's the last step
                 >
-                  Próximo
+                  {currentStep === steps.length - 1 ? "Calcular" : "Próximo"}
                   <ChevronRightIcon className="w-5 h-5 ml-1" />
                 </button>
               </div>
@@ -224,10 +238,11 @@ const countryOptions = [
         <div className="relative flex px-6 sm:pb-32 lg:px-8 lg:py-24">
           {/* Colunas de fundo com cores sólidas */}
           <div className="absolute inset-0 flex">
-            <div className="w-1/3 bg-brand-primary"></div>
-            <div className="w-1/3 bg-brand-secondary"></div>
+          {showConfetti && <Confetti className='h-full w-full' />}
+            <div className="w-1/3 bg-brand-primary h-full"></div>
+            <div className="w-1/3 bg-brand-secondary h-full"></div>
             {/* Last column with SVG background */}
-            <div className="w-1/3 bg-brand-tertiary relative overflow-hidden">
+            <div className="w-1/3 bg-brand-tertiary relative overflow-hidden h-full">
               {Array.from({ length: 111 }).map((_, index) => (
                 <img
                   key={index}
