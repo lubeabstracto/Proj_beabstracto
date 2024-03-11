@@ -5,7 +5,7 @@ import AlternativasComponent from './Alternativas';
 export default function Servicospt1() {
 
   return (
-    <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg py-32 conteudo-esquerda">
+    <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg py-16 conteudo-esquerda h-full">
     <img src={PaletteImg.src} alt="" />
     <h2 className="font-semibold text-subheading-3 text-brand-primary">E o que a gente faz?</h2>
     <div className="overflow-hidden" style={{ overflowX: 'auto' }}>

@@ -10,7 +10,7 @@ import '../styles/custom.module.css'
 const alternativas = [
     {
         id: 1,
-        content: 'criar um novo negócio',
+        content: 'profissionalizar seu negócio',
         color: '#672F93',
         element: Star,
         amount: 13,
@@ -19,7 +19,7 @@ const alternativas = [
     },
     {
         id: 2,
-        content: 'criar posicionamento',
+        content: 'transmitir mais confiança',
         color: '#B63637',
         element: Smile,
         amount: 8,
@@ -28,7 +28,7 @@ const alternativas = [
     },
     {
         id: 3,
-        content: 'abrir uma clínica',
+        content: 'melhorar a imagem da sua empresa',
         color: '#FFBE28',
         element: Bolt,
         amount: 11,
@@ -37,7 +37,7 @@ const alternativas = [
     },
     {
         id: 4,
-        content: 'ser um freelancer',
+        content: 'alcançar mais clientes      ',
         color: '#0078CC',
         element: Rocket,
         amount: 10,
@@ -46,7 +46,7 @@ const alternativas = [
     },
     {
         id: 5,
-        content: 'abrir um estúdio',
+        content: 'abrir um novo negócio',
         color: '#672F93',
         amount: 10,
         element: Star,
@@ -55,7 +55,7 @@ const alternativas = [
     },
     {
         id: 6,
-        content: 'ser profissional',
+        content: 'transmitir imagem profissional',
         color: '#B63637',
         amount: 12,
         element: Smile,
@@ -77,10 +77,10 @@ const renderElements = (Element, amount, animation) => {
     }
 
     return (
-        <div className="flex justify-left mt-2 h-6">
+        <div className="flex justify-left mt-2">
             {Array.from({ length: amount }).map((_, i) => (
                 animation === 'underline' ? (
-                    <div key={i} className={`mx-48 h-16 ${animationClass}`} style={{width: 'fit-content'}}>
+                    <div key={i} className={`mx-48 ${animationClass}`} style={{width: 'fit-content'}}>
                         <img src={Element.src} alt="Element" />
                     </div>
                 ) : (
@@ -124,7 +124,7 @@ const AlternativasComponent = () => {
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Tudo que você precisa para
           </p>
-          <div className="relative text-left" style={{ width: 'fit-content' }}>
+          <div className="relative text-left h-32" style={{ width: 'fit-content' }}>
             {renderItem(alternativas[current])}
           </div>
         </div>
