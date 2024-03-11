@@ -12,6 +12,11 @@ import simpleLogoWhite from '../assets/simpleLogoWhite.svg'
 import verticalBarcode from '../assets/verticalBarcode.svg'
 import smileSvg from '../assets/smileYellow.svg'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
+import LeadingIconInput from './atoms/inputs/Variants/LeadingIconInput'
+import LeadingDropdownInput from './atoms/inputs/Variants/LeadingDropdownInput'
+import InlineAddOnInput from './atoms/inputs/Variants/InlineAddOnInput'
+import FaqSection from './FAQ'
+import { UserIcon, ChatBubbleLeftIcon, EnvelopeIcon } from '@heroicons/react/20/solid';
 
 
 const stepImages = {
@@ -173,7 +178,7 @@ export default function Builder() {
 
                 <button
                 onClick={() => setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1))}
-                className="flex items-center text-brand-tertiary hover:text-brand-tertiary-darker font-medium"
+                className="flex items-center text-brand-tertiary hover:text-brand-tertiary-darker font-medium z-50"
                 >
                 Próximo
                 <ChevronRightIcon className="w-5 h-5 ml-1" />
@@ -217,3 +222,4 @@ export default function Builder() {
     </div>
   )
 }
+
