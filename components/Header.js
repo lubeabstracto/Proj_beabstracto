@@ -5,7 +5,7 @@ import { ArrowPathIcon, Bars3Icon, LinkIcon, GlobeAltIcon, SquaresPlusIcon, XMar
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, SwatchIcon} from '@heroicons/react/20/solid';
 
 const servicos = [
-  { name: 'Tecnologia', description: 'Websites, desenvolvimento de apps...', href: '/tecnologia', icon: CodeBracketIcon },
+  { name: 'Tecnologia', description: 'Websites, desenvolvimento de apps....', href: '/tecnologia', icon: CodeBracketIcon },
   { name: 'Audiovisual', description: 'Fotografia, produção de vídeos, drones...', href: '/audiovisual', icon: CameraIcon },
   { name: 'Marketing', description: 'Redes sociais, tráfego pago, SEO...', href: '/marketing', icon: HashtagIcon },
   { name: 'Identidade Visual', description: 'Logos, branding, paleta...', href: '/marketing', icon: SwatchIcon },
