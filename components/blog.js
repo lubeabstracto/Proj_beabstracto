@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import blogImg from '../assets/blog.png';
+import blogImg from '../assets/blogs.svg';
 
 
 export default function Blog() {
   return (
-    <div className="flex flex-row items-center justify-center p-0 w-[1280px] min-w-[1024px] max-w-[1280px] h-[792px] bg-custom-gradient min-h-screen ml-14 gap-4">
-      <div className="flex flex-col items-center p-0 gap-6 w-[1280px] h-[617px] flex-none order-0">
-        <div className="flex flex-col justify-center items-center p-0 gap-1 w-[988.2px] h-[123px]">
-          <h1 className="text-font-color-light font-brand font-semibold text-[32.4px] leading-[54px]">
+    <div className=" flex flex-row items-center justify-center p-0 w-[1280px] h-[792px] bg-custom-gradient min-h-screen ml-14 gap-4">
+      <div className="flex flex-col items-center p-0 gap-4 w-[1280px] h-[617px] flex-none order-0">
+        <div className="flex flex-col justify-center items-center p-0 gap-1 w-[988.2px] h-[123px] ">
+          <h1 className="text-font-color-light font-brand font-semibold text-heading-2 leading-[54px] ">
             Experts, nerds, exploradores.
            
           </h1>
@@ -20,8 +20,13 @@ export default function Blog() {
           {[...Array(4)].map((_, index) => (
             <div key={index} className="">
               <div className="flex flex-col justify-center items-start p-0 space-y-4 w-68 h-117">
-                <div className="mx-auto max-w-2xl text-center">
-                  <img className="  w-full h-auto" src={blogImg.src} alt="Blog" />
+                <div className=" flex flex-col justify-center items-start p-0 gap-4 w-68 h-118 ">
+
+                    <div className="w-68 h-76 p-2 rounded-md flex items-center justify-center overflow-hidden">
+                    <img className="w-full h-full object-cover" src={blogImg.src} alt="Blog" />
+                   </div>
+
+                 
                   <div className="flex flex-col items-start p-0 space-y-2 w-68 h-38">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                       SOMOS MARKETEIROS
@@ -31,8 +36,8 @@ export default function Blog() {
                     </p>
                   </div>
                  
-                 <div className="flex flex-row justify-center items-center px-4 py-2 gap-2 w-36 h-10 rounded bg-transparent">
-                  <button >
+                 <div className="flex flex-row justify-center items-center py-2 pl-2 pr-0 gap-2 w-[146px] h-10 rounded order-2 flex-none">
+                  <button>
                     Todos serviços 
                     <FaArrowRight />
                   </button>
