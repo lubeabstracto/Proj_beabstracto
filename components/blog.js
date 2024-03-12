@@ -1,13 +1,16 @@
 import React from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 import blogImg from '../assets/blog.png';
 
-export default function Example() {
+
+export default function Blog() {
   return (
     <div className="flex flex-row items-center justify-center p-0 w-[1280px] min-w-[1024px] max-w-[1280px] h-[792px] bg-custom-gradient min-h-screen ml-14 gap-4">
       <div className="flex flex-col items-center p-0 gap-6 w-[1280px] h-[617px] flex-none order-0">
         <div className="flex flex-col justify-center items-center p-0 gap-1 w-[988.2px] h-[123px]">
           <h1 className="text-font-color-light font-brand font-semibold text-[32.4px] leading-[54px]">
             Experts, nerds, exploradores.
+           
           </h1>
           <h2 className="text-font-color-light font-brand w-[675px] h-[65px] text-center text-[21.6px] leading-[32px] tracking-[0.0012em] flex-none order-1 flex-grow-0">
             Tudo isso e mais um pouco. Somos curiosos de marketing, arte e tecnologia e juntos fazemos a equipe mais forte do mundo.
@@ -27,9 +30,14 @@ export default function Example() {
                       Lorem ipsum dolor sit amet consectetur. Sed aliquet adipiscing pulvinar pulvinar varius.
                     </p>
                   </div>
-                  <button className="flex flex-row justify-center items-center px-4 py-2 gap-2 w-36 h-10 rounded bg-transparent">
-                    Todos serviços
+                 
+                 <div className="flex flex-row justify-center items-center px-4 py-2 gap-2 w-36 h-10 rounded bg-transparent">
+                  <button >
+                    Todos serviços 
+                    <FaArrowRight />
                   </button>
+                  </div>
+
                 </div>
               </div>
             </div>

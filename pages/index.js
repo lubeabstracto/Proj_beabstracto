@@ -11,8 +11,8 @@ import Pacotes from '../components/Pacotes';
 import MovingBanner from '../components/MovingBanner';
 import LoadingScreen from '../components/Loading';
 import Builder from '../components/Builder';
-import VisualizerComponent from '../components/VisualizerComponent'; // Ajuste o caminho de importação conforme necessário
-import Blog from '@/components/blog.js';
+//import VisualizerComponent from '../components/VisualizerComponent'; // Ajuste o caminho de importação conforme necessário
+import Blog from '@/components/Blog.js';
 
 
 const Home = () => {
