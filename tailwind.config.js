@@ -221,6 +221,7 @@ module.exports = {
         'border-light2': '#dddddd',
         'border-brand': '#4e177a',
 
+
         ...themeColors.global, // Espalha as cores 'global'
         ...themeColors.brand, // Espalha as cores 'brand'
         ...themeColors.font, // Espalha as cores 'font'
@@ -231,6 +232,11 @@ module.exports = {
         ...themeColors.feedback, // Espalha as cores 'feedback'
         ...themeColors.border, // Espalha as cores 'border'
       },
+
+      backgroundImage: {
+        'custom-gradient': "linear-gradient(180deg, #672F93 46.5%, #F2F2F2 46.51%)",
+      }
+      
     },
   },
   plugins: [],

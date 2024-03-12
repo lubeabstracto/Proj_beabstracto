@@ -12,7 +12,8 @@ import MovingBanner from '../components/MovingBanner';
 import LoadingScreen from '../components/Loading';
 import Builder from '../components/Builder';
 import Portfolio from '../components/Portfolio';
-import VisualizerComponent from '../components/VisualizerComponent'; // Ajuste o caminho de importação conforme necessário
+//import VisualizerComponent from '../components/VisualizerComponent'; // Ajuste o caminho de importação conforme necessário
+import Blog from '@/components/Blog.js';
 
 
 const Home = () => {
@@ -39,9 +40,10 @@ const Home = () => {
           <Hero />
           <MovingBanner/>
           <Servicos/>
-          <Builder/>
+          <Builder/>  
           <About />  
           <Portfolio />
+          <Blog />
           <Pacotes />
           <Contact />
           <Footer />
