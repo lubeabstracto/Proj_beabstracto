@@ -13,8 +13,6 @@ import LoadingScreen from '../components/Loading';
 import Builder from '../components/Builder';
 import Portfolio from '../components/Portfolio';
 //import VisualizerComponent from '../components/VisualizerComponent'; // Ajuste o caminho de importação conforme necessário
-import Blog from '@/components/Blog.js';
-
 
 const Home = () => {
   // Estado para controlar se o loading está ativo ou não
