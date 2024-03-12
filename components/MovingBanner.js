@@ -54,7 +54,7 @@ export default function MovingBanner() {
           <a
             key={service.id}
             href={service.href}
-            className={`text-white hover:underline inline-block ${styles.movingBannerItem}`}
+            className={`text-white hover:underline inline-block font-brand ${styles.movingBannerItem}`}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >

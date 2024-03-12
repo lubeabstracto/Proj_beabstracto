@@ -43,7 +43,6 @@ const Home = () => {
           <Builder/>  
           <About />  
           <Portfolio />
-          <Blog />
           <Pacotes />
           <Contact />
           <Footer />
