@@ -13,7 +13,7 @@ export default function Blog() {
            
           </h1>
           <h2 className="text-font-color-light font-brand flex-none order-1 flex-grow-0">
-            Tudo isso e mais um pouco. Somos curiosos de marketing, arte e tecnologi a e juntos fazemos a equipe mais forte do mundo.
+            Tudo isso e mais um pouco. Somos curiosos de marketing, arte e tecnologia e juntos fazemos a equipe mais forte do mundo.
           </h2>
         </div>
         <div className="flex flex-row items-center justify-start overflow-x-scroll p-0 ml-14 gap-4 px-14">
@@ -29,7 +29,7 @@ export default function Blog() {
                  
                   <div className="flex flex-col items-start p-0 space-y-2 w-68 h-38">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                      SOMOS MARKETEIROS
+                      SOMOS MARKETEIROS!
                     </h2>
                     <p className="mt-2 text-heading-3 font-semibold leading-8">
                       Lorem ipsum dolor sit amet consectetur. Sed aliquet adipiscing pulvinar pulvinar varius.
