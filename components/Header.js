@@ -1,18 +1,25 @@
 import { Fragment, useState, useEffect } from 'react';
 import logo from '../assets/logo.png';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
-import { ArrowPathIcon, Bars3Icon, ChartPieIcon, CursorArrowRaysIcon, FingerPrintIcon, SquaresPlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
+import { ArrowPathIcon, Bars3Icon, LinkIcon, GlobeAltIcon, SquaresPlusIcon, XMarkIcon, EnvelopeIcon, CodeBracketIcon, AcademicCapIcon, CameraIcon, HashtagIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, SwatchIcon} from '@heroicons/react/20/solid';
 
-const products = [
-  { name: 'Link na Bio', description: 'Um link profissional para sua bio!', href: '/link-na-bio', icon: ChartPieIcon },
-  { name: 'Email Marketing', description: 'Envie email marketing para todos os seus leads com nossos templates', href: '/email-marketing', icon: ChartPieIcon },
-  { name: 'Procedimentos de marketing', description: 'Tenha acesso aos procedimentos de marketing', href: '/SOP', icon: CursorArrowRaysIcon },
-  { name: 'Defina suas cores', description: 'Gere as cores perfeitas para sua marca', href: '#', icon: FingerPrintIcon },
-  { name: 'Faça seu logos', description: 'Crie seus logos de maneira fácil com a gente', href: '#', icon: SquaresPlusIcon },
-  { name: 'Crie seu website', description: 'Crie seu site em instantes com nossa plataforma', href: '#', icon: ArrowPathIcon },
+const servicos = [
+  { name: 'Tecnologia', description: 'Websites, desenvolvimento de apps....', href: '/tecnologia', icon: CodeBracketIcon },
+  { name: 'Audiovisual', description: 'Fotografia, produção de vídeos, drones...', href: '/audiovisual', icon: CameraIcon },
+  { name: 'Marketing', description: 'Redes sociais, tráfego pago, SEO...', href: '/marketing', icon: HashtagIcon },
+  { name: 'Identidade Visual', description: 'Logos, branding, paleta...', href: '/marketing', icon: SwatchIcon },
 ]
 
+const products = [
+  { name: 'Link na Bio', description: 'Um link profissional para sua bio!', href: '/link-na-bio', icon: LinkIcon },
+  { name: 'Chama no Zap', description: 'Um link personalizdo para o seu WhatsApp!', href: '/gerador-link-whatsapp', icon: PhoneIcon },
+  { name: 'Email Marketing', description: 'Envie email marketing para todos os seus leads com nossos templates', href: '/email-marketing', icon: EnvelopeIcon },
+  { name: 'Procedimentos de marketing', description: 'Tenha acesso aos procedimentos de marketing', href: '/SOP', icon: AcademicCapIcon },
+  { name: 'Defina suas cores', description: 'Gere as cores perfeitas para sua marca', href: '#', icon: SwatchIcon },
+  { name: 'Faça seu logos', description: 'Crie seus logos de maneira fácil com a gente', href: '#', icon: SquaresPlusIcon },
+  { name: 'Crie seu website', description: 'Crie seu site em instantes com nossa plataforma', href: '#', icon: GlobeAltIcon },
+]
 
 const callsToAction = [
   { name: 'Sobre nós', href: '#', icon: PlayCircleIcon },
@@ -58,7 +65,7 @@ export default function Header() {
 <header className={`${headerPosition === 'fixed' ? 'fixed top-0 bg-white shadow-md' : 'absolute bg-transparent'} left-0 w-full transition-transform duration-300 header ${showHeader ? 'translate-y-0' : '-translate-y-full'} z-10`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Beasbtracto</span>
             <img
                 className="h-8 w-auto"
@@ -80,20 +87,67 @@ export default function Header() {
       </button>
         </div>
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Serviços
-            </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <Popover className="relative">
+              <Popover.Button className="flex font-brand items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                Serviços
+                <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+              </Popover.Button>
+
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-200"
+                enterFrom="opacity-0 translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition ease-in duration-150"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-1"
+              >
+                <Popover.Panel className="absolute -left-8 top-full z-50 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+                  <div className="p-4">
+                    {servicos.map((item) => (
+                      <div
+                        key={item.name}
+                        className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                      >
+                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        </div>
+                        <div className="flex-auto">
+                          <a href={item.href} className="font-brand block font-semibold text-gray-900">
+                            {item.name}
+                            <span className="absolute inset-0" />
+                          </a>
+                          <p className="font-brand mt-1 text-gray-600">{item.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                    {callsToAction.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                      >
+                        <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </Popover.Panel>
+              </Transition>
+            </Popover>
+            <a href="#" className="text-sm font-brand font-semibold leading-6 text-gray-900">
               Blog
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            <a href="#" className="text-sm font-brand font-semibold leading-6 text-gray-900">
               Portfolio
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            <a href="#" className="text-sm font-brand font-semibold leading-6 text-gray-900">
               Contato
             </a>
             <Popover className="relative">
-              <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+              <Popover.Button className="flex font-brand items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
                 Ferramentas
                 <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
               </Popover.Button>
@@ -118,11 +172,11 @@ export default function Header() {
                           <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                         </div>
                         <div className="flex-auto">
-                          <a href={item.href} className="block font-semibold text-gray-900">
+                          <a href={item.href} className="font-brand block font-semibold text-gray-900">
                             {item.name}
                             <span className="absolute inset-0" />
                           </a>
-                          <p className="mt-1 text-gray-600">{item.description}</p>
+                          <p className="font-brand mt-1 text-gray-600">{item.description}</p>
                         </div>
                       </div>
                     ))}

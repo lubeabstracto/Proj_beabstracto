@@ -33,7 +33,9 @@ export default function HeroForm() {
       className="absolute inset-0 -z-10 h-full w-full"
       src={foldedTexture.src}
       />
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+
+      
+      <div className="mx-auto max-w-7xl px-6 pb-0 lg:pb-24 pt-10 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
           <img
             className="h-48"
@@ -48,15 +50,15 @@ export default function HeroForm() {
           </p>
  
         </div>
-        <div className="px-16 pt-32 mx-8 flex sm:mt-24 lg:mt-0 w-full">
-        <div className="w-full relative">
+        <div className="pt-0 mx-8 flex mt-0">
+        <div className="relative">
             {/* Position the hand1 image at the top right corner of the card */}
-            <img src={hand2.src} alt="Hand 1" className="absolute top-4 right-0 translate-x-1/2 -translate-y-1/2 h-44"/>
+            <img src={hand2.src} alt="Hand 1" className="absolute top-4 right-0 translate-x-1/2 -translate-y-1/2 h-44 pr-32 lg:pr-0"/>
             
             {/* Position the hand2 image at the bottom left corner of the card */}
             <img src={hand1.src} alt="Hand 2" className="absolute bottom-8 left-0 -translate-x-1/2 translate-y-1/2 h-44"/>
 
-          <div className="rounded-lg bg-white p-4 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
+          <div className="rounded-lg bg-white p-4 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl pr-24 lg:pr-0">
 
             {/* LeadingIconInput Component */}
             <LeadingIconInput
@@ -101,6 +103,9 @@ export default function HeroForm() {
         </div>
       </div>
       </div>
+
+
+
       <div className='flex flex-col gap-4 m-16 md:flex-row'>
         <Card
           title="Crie seu link"

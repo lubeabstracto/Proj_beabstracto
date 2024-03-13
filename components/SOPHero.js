@@ -1,4 +1,9 @@
 import { useState } from 'react'
+import secondtvImg from '../assets/secondtv.jpg'
+import handImg from '../assets/hand.jpg'
+import visualOne from '../assets/VisualOne.jpg'
+import visualTwo from '../assets/VisualTwo.jpg'
+import visualThree from '../assets/VisualThree.jpg'
 
 export default function SOPHero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -66,7 +71,7 @@ export default function SOPHero() {
                   <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                     <div className="relative">
                       <img
-                        src="/src/assets/secondtv.jpg"
+                        src={secondtvImg.src}
                         alt="Agencia de marketing barata"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -76,7 +81,7 @@ export default function SOPHero() {
                   <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                     <div className="relative">
                       <img
-                        src="/src/assets/hand.jpg"
+                        src={handImg.src}
                         alt="Fazer meu website"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -84,7 +89,7 @@ export default function SOPHero() {
                     </div>
                     <div className="relative">
                       <img
-                        src="/src/assets/VisualOne.jpg"
+                        src={visualOne.src}
                         alt="Colocar meu negocio no Google"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -94,7 +99,7 @@ export default function SOPHero() {
                   <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                     <div className="relative">
                       <img
-                        src="/src/assets/VisualTwo.jpg"
+                        src={visualTwo.src}
                         alt="Como melhorar meu SEO"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -102,7 +107,7 @@ export default function SOPHero() {
                     </div>
                     <div className="relative">
                       <img
-                        src="/src/assets/VisualThree.jpg"
+                        src={visualThree.src}
                         alt="Melhorar meu link building"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
