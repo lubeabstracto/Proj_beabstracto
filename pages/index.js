@@ -5,14 +5,14 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Banner from '../components/Banner'
 import About from '../components/About';
+import Portifolio from '../components/Portifolio';
 import Contact from '../components/Contact';
 import Servicos from '../components/Servicos';
 import Pacotes from '../components/Pacotes';
 import MovingBanner from '../components/MovingBanner';
 import LoadingScreen from '../components/Loading';
 import Builder from '../components/Builder';
-//import VisualizerComponent from '../components/VisualizerComponent'; // Ajuste o caminho de importação conforme necessário
-import Blog from '@/components/Blog.js';
+
 
 
 const Home = () => {
@@ -41,7 +41,7 @@ const Home = () => {
           <Servicos/>
           <Builder/>  
           <About />  
-          <Blog />
+          <Portifolio />
           <Pacotes />
           <Contact />
           <Footer />
